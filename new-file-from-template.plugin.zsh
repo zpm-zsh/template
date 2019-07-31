@@ -61,5 +61,6 @@ function template(){
     sed -i "s/@6@/${7}/g" "$filename"
   fi
 
+  echo "${c[cyan]}Create ${c[yellow]}${filename}"
 }
 

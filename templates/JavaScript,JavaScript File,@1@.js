@@ -1,2 +1,4 @@
-'use strict';
-console.log('Hello from @1@');
+const @1@ = 'Hello';
+
+export default @1@;
+

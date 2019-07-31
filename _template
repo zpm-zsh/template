@@ -1,0 +1,19 @@
+#compdef template
+#autoload
+
+_templates_list=()
+for template in ${${(%):-%x}:a:h}/templates/*,*; do
+  name="$(basename $template | awk -F',' '{print $1}' )"
+  description="$(basename $template | awk -F',' '{print $2}' )"
+  _templates_list+="${name}:${description}"
+done
+
+_arguments \
+    '*:: :->subcmds' && return 0
+
+if (( CURRENT == 1 )); then
+  _describe -t commands 'Templates' _templates_list
+  return
+fi
+
+return 

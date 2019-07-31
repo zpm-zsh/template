@@ -2,7 +2,7 @@
 #autoload
 
 _templates_list=()
-for template in ${${(%):-%x}:a:h}/templates/*,*; do
+for template in ${${(%):-%x}:a:h}/templates/*,template.sh; do
   name="$(basename $template | awk -F',' '{print $1}' )"
   description="$(basename $template | awk -F',' '{print $2}' )"
   _templates_list+="${name}:${description}"

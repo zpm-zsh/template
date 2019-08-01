@@ -9,7 +9,10 @@ function template(){
   
   shift
   
-  filename_created=$(zsh "$filename" $@)
+  source "$filename" $@
   
-  echo "${c[cyan]}Created: ${c[yellow]}${filename_created}"
+  if [[ -n "$filename_created" ]]; then
+    echo "${c[cyan]}Created: ${c[yellow]}${filename_created}"
+  fi
+
 }

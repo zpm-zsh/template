@@ -7,4 +7,4 @@ cp "${${(%):-%x}:a:h}/files/HTML.html" "${1}.html"
 
 sed -i "s/@1@/${1}/g" "${1}.html"
 
-echo "${1}.html"
+filename_created="${1}.html"

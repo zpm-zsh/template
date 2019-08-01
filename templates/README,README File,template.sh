@@ -8,4 +8,4 @@ cp "${${(%):-%x}:a:h}/files/README.md" "README.md"
 sed -i "s/@1@/${1}/g" "README.md"
 sed -i "s/@2@/${2}/g" "README.md"
 
-echo "README.md"
+filename_created="README.md"

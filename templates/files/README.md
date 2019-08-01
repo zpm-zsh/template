@@ -1,16 +1,16 @@
 Welcome to @1@
 ===
 
-> @1@
+> @1@ description
 
 ### [Homepage](https://github.com/@2@/@1@)
 
 
 ### Author
  
- **Author Name**
+**Author Name**
 
- * Github: [@@2@](https://github.com/@2@)
+* Github: [@@2@](https://github.com/@2@)
 
 ## License
 

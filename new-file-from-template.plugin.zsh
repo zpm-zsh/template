@@ -9,6 +9,7 @@ function template(){
   
   shift
   
+  filename_created=''
   source "$filename" $@
   
   if [[ -n "$filename_created" ]]; then

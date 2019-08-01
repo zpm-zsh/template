@@ -3,7 +3,7 @@ if [[ "$#" -lt 1 ]]; then
   return 1
 fi
 
-cp "${${(%):-%x}:a:h}/HTML.html" "${1}.html"
+cp "${${(%):-%x}:a:h}/files/HTML.html" "${1}.html"
 
 sed -i "s/@1@/${1}/g" "${1}.html"
 

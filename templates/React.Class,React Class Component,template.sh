@@ -3,7 +3,7 @@ if [[ "$#" -lt 1 ]]; then
   return 1
 fi
 
-cp "${${(%):-%x}:a:h}/React.Class.jsx" "${1}.jsx"
+cp "${${(%):-%x}:a:h}/files/React.Class.jsx" "${1}.jsx"
 
 sed -i "s/@1@/${1}/g" "${1}.jsx"
 

@@ -3,7 +3,7 @@ if [[ "$#" -lt 1 ]]; then
   return 1
 fi
 
-cp "${${(%):-%x}:a:h}/Markdown.md" "${1}.md"
+cp "${${(%):-%x}:a:h}/files/Markdown.md" "${1}.md"
 
 sed -i "s/@1@/${1}/g" "${1}.md"
 

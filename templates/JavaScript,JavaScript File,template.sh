@@ -3,7 +3,7 @@ if [[ "$#" -lt 1 ]]; then
   return 1
 fi
 
-cp "${${(%):-%x}:a:h}/JavaScript.js" "${1}.js"
+cp "${${(%):-%x}:a:h}/files/JavaScript.js" "${1}.js"
 
 sed -i "s/@1@/${1}/g" "${1}.js"
 

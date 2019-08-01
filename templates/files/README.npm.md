@@ -32,7 +32,7 @@ const @1@ = require('@1@');
 
 ## Contributing
 
-Contributions, issues and feature requests are welcome!  
+Contributions, issues and feature requests are welcome!\
 Feel free to check [issues page](https://github.com/@2@/@1@/issues).
 
 ## Show your support
@@ -41,5 +41,5 @@ Give a star if this project helped you!
 
 ## License
 
-Copyright © 2019 [Grigorii Horos](https://github.com/@2@).  
+Copyright © 2019 [Grigorii Horos](https://github.com/@2@).\
 This project is [MIT](https://github.com/@2@/@1@/LICENSE) licensed.

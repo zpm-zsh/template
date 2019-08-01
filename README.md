@@ -1,6 +1,6 @@
 # Plugin for ZSH who create files form template
 
-![Screen](record.git)
+![Screen](record.gif)
 
 ## Installation
 

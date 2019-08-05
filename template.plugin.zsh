@@ -21,14 +21,15 @@ function template(){
     return 1
   fi
   
-  if [[ -f "${template_dir}/${template_name},pre.sh" ]]; then
-    bash "${template_dir}/${template_name},pre.sh" $@
-  fi
-  
+ 
   for i in `seq 1 ${args_length}`; do
     filename="${filename/_${i}_/${(P)i}}"
   done
-  
+
+  if [[ -f "${template_dir}/${template_name},pre.sh" ]]; then
+    bash "${template_dir}/${template_name},pre.sh" $filename $@
+  fi  
+
   cp "${filename_orig}" "${filename}"
   
   for i in `seq 1 ${args_length}`; do
@@ -36,7 +37,7 @@ function template(){
   done
   
   if [[ -f "${template_dir}/${template_name},post.sh" ]]; then
-    bash "${template_dir}/${template_name},post.sh" $@
+    bash "${template_dir}/${template_name},post.sh" $filename $@
   fi
   
   echo "${c[cyan]}Created: ${c[yellow]}${filename}"

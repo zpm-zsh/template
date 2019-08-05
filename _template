@@ -4,8 +4,9 @@
 _templates_list=()
 for template in ${${(%):-%x}:a:h}/templates/*,*,*; do
   name="$(basename $template | awk -F',' '{print $1}' )"
-  description="$(basename $template | awk -F',' '{print $2}' )"
-  _templates_list+="${name}:${description}"
+  description="[1;32m$(basename $template | awk -F',' '{print $2}' )[0m"
+  arg_length="$(basename $template | awk -F',' '{print $3}' )"
+  _templates_list+="${name}:${description}[2m, [2;31m${arg_length} arg(s)[0m"
 done
 
 _arguments \

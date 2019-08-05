@@ -1,10 +1,51 @@
-`import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class __1__ extends React.Component {
+class __1__ extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  componentWillMount() {
+
+  }
+
+  componentDidMount() {
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+
+  }
+
+  componentWillUnmount() {
+
+  }
+
   render() {
-    const greeting = 'Hello Function Component!';
-    return <h1>Hello, {greeting}</h1>;
+    return (
+      <div>
+        Hello form Class Component
+      </div>
+    );
   }
 }
 
-export default __1__
+__1__.propTypes = {
+
+};
+
+export default __1__;

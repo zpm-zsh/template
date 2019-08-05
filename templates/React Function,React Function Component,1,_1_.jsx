@@ -1,9 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function __1__() {
-  const greeting = 'Hello Function Component!';
+const __1__ = props => {
+  return (
+    <div>
+      Hello from Function Component
+    </div>
+  );
+};
 
-  return <h1>{greeting}</h1>;
-}
+__1__.propTypes = {
+
+};
 
 export default __1__;

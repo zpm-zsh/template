@@ -35,7 +35,6 @@ function template(){
     sed -i "s/__${i}__/${(P)i}/g" "${filename}"
   done
   
-  
   if [[ -f "${template_dir}/${template_name},post.sh" ]]; then
     bash "${template_dir}/${template_name},post.sh" $@
   fi
@@ -43,4 +42,3 @@ function template(){
   echo "${c[cyan]}Created: ${c[yellow]}${filename}"
   
 }
-

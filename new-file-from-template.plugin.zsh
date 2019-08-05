@@ -21,6 +21,10 @@ function template(){
     return 1
   fi
   
+  if [[ -f "${template_dir}/${template_name},pre.sh" ]]; then
+    bash "${template_dir}/${template_name},pre.sh" $@
+  fi
+  
   if [[ -n $1 ]]; then
     filename="${filename/_1_/"$1"}"
   fi
@@ -77,6 +81,10 @@ function template(){
   
   if [[ -n $7 ]]; then
     sed -i "s/__7__/${7}/g" "${filename}"
+  fi
+  
+  if [[ -f "${template_dir}/${template_name},post.sh" ]]; then
+    bash "${template_dir}/${template_name},post.sh" $@
   fi
   
   echo "${c[cyan]}Created: ${c[yellow]}${filename}"

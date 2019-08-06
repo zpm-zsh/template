@@ -4,14 +4,14 @@
   "description": "__2__",
   "version": "1.0.0",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "test": "tape test/*.js",
     "build": "gulp",
     "fix": "eslint --fix *.js"
   },
-  "keywords": [
-    "__1__"
-  ],
+  "files": ["index.js", "lib/", "bin/"],
+  "keywords": ["__1__"],
   "maintainers": [
     {
       "name": "__NAME__",
@@ -22,11 +22,12 @@
   "bugs": {
     "url": "https://github.com/__3__/__1__/issues"
   },
-  "repository": [
-    {
-      "type": "git",
-      "url": "git://github.com/__3__/__1__.git"
-    }
-  ],
-  "homepage": "https://github.com/__3__/__1__"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/__3__/__1__.git"
+  },
+  "homepage": "https://github.com/__3__/__1__",
+  "engines": {
+    "node": ">=10"
+  }
 }

@@ -1,51 +1,30 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class __1__ extends Component {
   constructor(props) {
     super(props);
-
   }
 
-  componentWillMount() {
+  componentWillMount() {}
 
-  }
+  componentDidMount() {}
 
-  componentDidMount() {
+  componentWillReceiveProps(nextProps) {}
 
-  }
+  shouldComponentUpdate(nextProps, nextState) {}
 
-  componentWillReceiveProps(nextProps) {
+  componentWillUpdate(nextProps, nextState) {}
 
-  }
+  componentDidUpdate(prevProps, prevState) {}
 
-  shouldComponentUpdate(nextProps, nextState) {
-
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-  }
-
-  componentWillUnmount() {
-
-  }
+  componentWillUnmount() {}
 
   render() {
-    return (
-      <div>
-        Hello form Class Component
-      </div>
-    );
+    return <div>Hello form Class Component</div>;
   }
 }
 
-__1__.propTypes = {
-
-};
+__1__.propTypes = {};
 
 export default __1__;

@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
+0="${${(M)0:#/*}:-$PWD/$0}"
 
 function template(){
   if [[ "$#" -lt 1 ]]; then
@@ -6,7 +8,7 @@ function template(){
     return 1
   fi
   
-  filename_orig="$(echo ${${(%):-%x}:a:h}/templates/${1},*,*,*([1]))"
+  filename_orig="$(echo ${0:h}/templates/${1},*,*,*([1]))"
   shift
   template_dir="$(dirname ${filename_orig})"
   template_name="$(basename ${filename_orig} | awk -F',' '{print $1}')"
@@ -45,7 +47,7 @@ function template(){
 }
 
 _templates_list=()
-for ___template in ${${(%):-%x}:a:h}/templates/*,*,*,*; do
+for ___template in ${0:h}/templates/*,*,*,*; do
   name="$(basename $___template | awk -F',' '{print $1}' )"
   description="$(basename $___template | awk -F',' '{print $2}' )"
   arg_length="$(basename $___template | awk -F',' '{print $3}' )"

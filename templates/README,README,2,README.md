@@ -16,4 +16,3 @@ Welcome to __1__
 
 Copyright © 2019 [@__2__](https://github.com/__2__).  
 This project is [MIT](https://github.com/__2__/__1__/LICENSE) licensed.
-

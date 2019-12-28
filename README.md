@@ -1,4 +1,4 @@
-# Plugin for ZSH who create files form template
+# Plugin for ZSH that creates files from templates
 
 ![Screen](record.gif)
 
@@ -17,13 +17,18 @@ git clone https://github.com/zpm-zsh/new-file-from-template
 
 ### If you use [Zgen](https://github.com/tarjoilija/zgen)
 
-1. Add `zgen load zpm-zsh/new-file-from-template` to your `.zshrc` with your other plugin
+1. Add `zgen load zpm-zsh/new-file-from-template` to your `.zshrc` with your other plugins
 2. run `zgen save`
 
 ### If you use my [ZPM](https://github.com/zpm-zsh/zpm)
 
 * Add `zpm load zpm-zsh/new-file-from-template` into your `.zshrc`
 
+## Usage
+
+`template template args`
+
 ## TODO:
 
 * [ ] - Add more templates
+

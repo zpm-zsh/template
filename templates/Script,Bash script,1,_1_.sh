@@ -6,4 +6,3 @@ if [[ "$#" -lt 1 ]]; then
   echo "Usage ..."
   exit 1
 fi
-

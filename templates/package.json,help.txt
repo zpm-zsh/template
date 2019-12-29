@@ -1,3 +1,0 @@
- [35m•[0m Package Name
- [35m•[0m Package Description
- [35m•[0m GitHub login

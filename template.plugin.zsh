@@ -53,18 +53,12 @@ function template(){
   echo "${c[cyan]}Done"
 }
 
-local ___template
-local name
-local description
-local arg_length
-
-typeset -g _templates_list
-_templates_list=()
+typeset -g _templates_list=()
 for ___template in ${0:h}/templates/*,*,*; do
 
-  name="$(basename $___template | awk -F',' '{print $1}' )"
-  description="$(basename $___template | awk -F',' '{print $2}' )"
-  arg_length="$(basename $___template | awk -F',' '{print $3}' )"
+  local name="$(basename $___template | awk -F',' '{print $1}' )"
+  local description="$(basename $___template | awk -F',' '{print $2}' )"
+  local arg_length="$(basename $___template | awk -F',' '{print $3}' )"
   _templates_list+="${name}:${description}, ${arg_length} arg(s)"
 done
 

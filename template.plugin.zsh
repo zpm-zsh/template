@@ -52,6 +52,7 @@ function template(){
   echo "${c[cyan]}Done"
 }
 
+local ___template
 typeset -g _templates_list
 _templates_list=()
 for ___template in ${0:h}/templates/*,*,*; do

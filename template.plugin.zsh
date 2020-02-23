@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
+typeset -g base_dir
 base_dir=${0:h}
 
 function template(){
@@ -53,12 +54,13 @@ function template(){
 }
 
 local ___template
+local name
+local description
+local arg_length
+
 typeset -g _templates_list
 _templates_list=()
 for ___template in ${0:h}/templates/*,*,*; do
-  local name
-  local description
-  local arg_length
 
   name="$(basename $___template | awk -F',' '{print $1}' )"
   description="$(basename $___template | awk -F',' '{print $2}' )"

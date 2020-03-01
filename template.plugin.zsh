@@ -65,9 +65,9 @@ function template(){
 _templates_list=()
 for ___template in ${0:h}/templates/*,*,*; do
 
-  name="$(basename $___template | awk -F',' '{print $1}' )"
-  description="$(basename $___template | awk -F',' '{print $2}' )"
-  arg_length="$(basename $___template | awk -F',' '{print $3}' )"
+  name="$(echo ${___template:t} | cut -d',' -f1 )"
+  description="$(echo ${___template:t} | cut -d',' -f2 )"
+  arg_length="$(echo ${___template:t} | cut -d',' -f3 )"
   _templates_list+="${name}:${description}, ${arg_length} arg(s)"
 done
 

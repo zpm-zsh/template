@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
-local _zpm_template__base_dir=${0:h}
+typeset -g _zpm_template__base_dir=${0:h}
 
 function template() {
   emulate -L zsh
@@ -16,7 +16,9 @@ function template() {
 
   shift
 
-  args_length="$(echo ${___template:t} | cut -d',' -f3 )"
+  arr_mod=("${(@s/,/)___template:t}")
+
+  args_length="${arr_mod[3]}"
 
   if [[ "$#" -lt $args_length ]]; then
     echo "Need ${args_length} arguments for template"
@@ -54,10 +56,11 @@ function template() {
 
 _templates_list=()
 for ___template in ${0:h}/templates/*,*,*; do
+  arr_mod=("${(@s/,/)___template:t}")
 
-  name="$(echo ${___template:t} | cut -d',' -f1 )"
-  description="$(echo ${___template:t} | cut -d',' -f2 )"
-  arg_length="$(echo ${___template:t} | cut -d',' -f3 )"
+  name="${arr_mod[1]}"
+  description="${arr_mod[2]}"
+  arg_length="${arr_mod[3]}"
   _templates_list+="${name}:${description}, ${arg_length} arg(s)"
 done
 

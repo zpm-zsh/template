@@ -1,52 +1,50 @@
 #!/usr/bin/env zsh
 
-function template() {
-  emulate -L zsh
-  setopt +o nomatch
+emulate -L zsh
+setopt +o nomatch
 
-  if [[ "$#" -lt 1 ]]; then
-    echo "Usage: template template args"
-    return 1
+if [[ "$#" -lt 1 ]]; then
+  echo "Usage: template template args"
+  return 1
+fi
+
+local template_folder="$(echo ${_zpm_template__base_dir}/templates/${1},*,*([1]))"
+
+shift
+
+arr_mod=("${(@s/,/)___template:t}")
+
+args_length="${arr_mod[3]}"
+
+if [[ "$#" -lt $args_length ]]; then
+  echo "Need ${args_length} arguments for template"
+  if [[ -f "${template_folder}/help.txt" ]]; then
+    cat "${template_folder}/help.txt"
   fi
+  return 1
+fi
 
-  local template_folder="$(echo ${_zpm_template__base_dir}/templates/${1},*,*([1]))"
+if [[ -f "${template_folder}/pre.sh" ]]; then
+  bash "${template_folder}/pre.sh" $PWD $@
+fi
 
-  shift
+for file in "${template_folder}/files/"*; do
+  if [[ -e "$file" ]]; then
+    filename=$(basename $file)
+    for i in `seq 1 ${args_length}`; do
+      filename="${filename/_${i}_/${(P)i}}"
+    done
 
-  arr_mod=("${(@s/,/)___template:t}")
+    cp "${file}" "${PWD}/${filename}"
 
-  args_length="${arr_mod[3]}"
-
-  if [[ "$#" -lt $args_length ]]; then
-    echo "Need ${args_length} arguments for template"
-    if [[ -f "${template_folder}/help.txt" ]]; then
-      cat "${template_folder}/help.txt"
-    fi
-    return 1
+    for i in `seq 1 ${args_length}`; do
+      sed -i "s/__${i}__/${(P)i}/g" "${PWD}/${filename}"
+    done
   fi
+done
 
-  if [[ -f "${template_folder}/pre.sh" ]]; then
-    bash "${template_folder}/pre.sh" $PWD $@
-  fi
+if [[ -f "${template_folder}/post.sh" ]]; then
+  bash "${template_folder}/post.sh" $PWD $@
+fi
 
-  for file in "${template_folder}/files/"*; do
-    if [[ -e "$file" ]]; then
-      filename=$(basename $file)
-      for i in `seq 1 ${args_length}`; do
-        filename="${filename/_${i}_/${(P)i}}"
-      done
-
-      cp "${file}" "${PWD}/${filename}"
-
-      for i in `seq 1 ${args_length}`; do
-        sed -i "s/__${i}__/${(P)i}/g" "${PWD}/${filename}"
-      done
-    fi
-  done
-
-  if [[ -f "${template_folder}/post.sh" ]]; then
-    bash "${template_folder}/post.sh" $PWD $@
-  fi
-
-  echo "${c[cyan]}Done"
-}
+echo "${c[cyan]}Done"
